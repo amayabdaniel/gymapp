@@ -1,4 +1,5 @@
 import Navbar from "@/scenes/navbar";
+import Home from "@/scenes/home";
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/shared/types";
 
@@ -10,11 +11,11 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if(window.scrollY === 0) {
+      if (window.scrollY === 0) {
         setIsTop(true);
         setSelectedPage(SelectedPage.Home);
       }
-      if(window.scrollY !== 0) {
+      if (window.scrollY !== 0) {
         setIsTop(false);
       }
     };
@@ -24,9 +25,12 @@ function App() {
 
   return (
     <div className="app bg-gray-20">
-      <Navbar 
+      <Navbar
         isTop={isTop}
-      selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+      />
+      <Home setSelectedPage={setSelectedPage} />
     </div>
   );
 }
